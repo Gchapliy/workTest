@@ -2,10 +2,14 @@ package com.example.service;
 
 import com.example.entity.Card;
 
+import java.util.Set;
+
 public interface CardService {
-    public Card findCardById(long id);
+    Set<Card> findAll();
 
-    public void updateCard(Card card);
+    Card findCardById(long id);
 
-    public void removeCardById(long id);
+    void updateCard(Card card);
+
+    void removeCardById(long id);
 }

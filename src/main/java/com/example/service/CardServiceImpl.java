@@ -5,10 +5,18 @@ import com.example.entity.Card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Service
 public class CardServiceImpl implements CardService{
     @Autowired
     private CardDAO cardDAO;
+
+    @Override
+    public Set<Card> findAll() {
+        return new HashSet<>(cardDAO.findAll());
+    }
 
     public Card findCardById(long id){
         return cardDAO.findById(id).get();

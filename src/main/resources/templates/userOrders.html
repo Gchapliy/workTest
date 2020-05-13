@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>user orders</title>
+</head>
+<br>
+<div>
+    <h2>
+        <span th:text="${message}"></span>
+    </h2>
+</div>
+</br>
+<table border="1">
+    <thead>
+    <tr>
+        <th> id </th>
+        <th> books </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td><span th:text="${order.id}"/></td>
+        <td th:each="book : ${order.books}">
+            <span th:text="${book.id} + ' ' + ${book.name}"/>
+            <a th:href="@{'/removeBookFromOrder/' + ${order.id} + '/' + ${book.id} + '/' + ${userId}}">remove book</a>
+        </td>
+        <td>
+            <a th:href="@{'/removeOrder/' + ${order.id} + '/' + ${userId}}">remove order</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</br>
+<div>
+    <a th:href="@{'/updateUser/' + ${userId}}">back</a>
+</div>
+</body>
+</html>

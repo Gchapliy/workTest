@@ -55,6 +55,14 @@
 </table>
 </br>
 <div>
+    <a th:href="@{'/showOrders/' + ${user.id}}">show Orders</a>
+</div>
+</br>
+<div>
+    <a th:href="@{'/createOrder/' + ${user.id}}">createOrder</a>
+</div>
+</br>
+<div>
     <a th:href="@{'/users'}">back</a>
 </div>
 </body>

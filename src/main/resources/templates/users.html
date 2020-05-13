@@ -18,6 +18,7 @@
         <th> login </th>
         <th> email </th>
         <th> name </th>
+        <th> orders </th>
         <th> update </th>
         <th> delete </th>
     </tr>
@@ -28,6 +29,7 @@
         <td><span th:text="${user.login}"/></td>
         <td><span th:text="${user.email}"/></td>
         <td><span th:text="${user.name}"/></td>
+        <td><span th:text="@{'/userOrders/' + ${user.id}}"/>show orders</td>
         <td><a th:href="@{'/updateUser/' + ${user.id}}">update</a></td>
         <td><a th:href="@{'/removeUser/' + ${user.id}}">remove</a></td>
     </tr>
@@ -40,6 +42,10 @@
 </br>
 <div>
     <a th:href="@{'/createCard'}">add new card</a>
+</div>
+</br>
+<div>
+    <a th:href="@{'/createBook'}">add new book</a>
 </div>
 </br>
 <div>

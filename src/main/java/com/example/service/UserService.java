@@ -5,11 +5,17 @@ import com.example.entity.User;
 import java.util.List;
 
 public interface UserService {
-    public List<User> findAllUsers();
+    List<User> findAllUsers();
 
-    public User findUserById(long id);
+    User findUserById(long id);
 
-    public void updateUser(User user);
+    void updateUser(User user);
 
-    public void removeUserById(long id);
+    void removeUserById(long id);
+
+    void addCardToUser(long userId, long cardId);
+
+    void removeCard(long userId, long cardId);
+
+    void updateUserData(User user);
 }

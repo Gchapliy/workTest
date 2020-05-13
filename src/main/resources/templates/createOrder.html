@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>new Order</title>
+</head>
+<body>
+
+<div> New order</div>
+</br>
+<form action="#" th:action="@{'/createOrder/' + ${userId}}" th:object="${order}" method="post">
+    <p style="display: none">Id: <input type="text" th:field="*{id}"/></p>
+    <tr th:each="book : ${order.books}">
+        <td><span th:text="${book.id}"/></td>
+        <td><span th:text="${book.name}"/></td>
+        <td><a th:href="@{'/removeBookFromCreatingOrder/' + ${order.id} + '/' + ${bookId} + '/' + ${userId}}">remove
+            book</a></td>
+    </tr>
+    <p><input type="submit" value="Create"/></p>
+</form>
+
+<div> All books</div>
+</br>
+<form action="#" th:action="@{'/addBookToOrder/' + ${order.id} + '/' + ${userId}}" method="post">
+    <table border="1">
+        <thead>
+        <tr>
+            <th> id</th>
+            <th> name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td><span th:text="${book.id}"/></td>
+            <td><span th:text="${book.name}"/></td>
+            <td><input type="checkbox" name="booksForOrder" th:value="${book.id}"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <p><input type="submit" value="Add to order"/></p>
+</form>
+
+</br>
+<div>
+    <a th:href="@{'/updateUser/' + ${userId}}">back</a>
+</div>
+</body>
+</html>
