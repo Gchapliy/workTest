@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>update card</title>
+</head>
+<body>
+<h2><span th:text="${message}"/></h2>
+<form action="#" th:action="@{'/updateCard/' + ${userId}}" th:object="${card}" method="post">
+    <p style="display: none">Id: <input type="text" th:field="*{id}"/></p>
+    <p>Name: <input type="text" th:field="*{name}"/></p>
+    <p><input type="submit" value="Update"/></p>
+</form>
+</br>
+<div>
+    <a th:href="@{'/updateUser/' + ${userId}}">back</a>
+</div>
+</body>
+</html>

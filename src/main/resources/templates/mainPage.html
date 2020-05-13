@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Spring Boot Thymeleaf Hello World Example</title>
+</head>
+<body>
+<div>
+    <h2>
+        <span th:text="${message}"></span>
+    </h2>
+</div>
+</br>
+<div>
+    <a th:href="@{'/users'}">go to users</a>
+</div>
+</body>
+</html>

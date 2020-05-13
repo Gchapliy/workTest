@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<br>
+<h2><span th:text="${message}"/></h2>
+
+<form action="#" th:action="@{/updateUser}" th:object="${user}" method="post">
+    <p style="display: none">Id: <input type="text" th:field="*{id}"/></p>
+    <p>Login: <input type="text" th:field="*{login}"/></p>
+    <p>Email: <input type="text" th:field="*{email}"/></p>
+    <p>Name: <input type="text" th:field="*{name}"/></p>
+    <p><input type="submit" value="Update"/></p>
+</form>
+
+</br>
+<h2>User cards</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th> id </th>
+        <th> name </th>
+        <th> remove </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="card : ${cards}">
+        <td><span th:text="${card.id}"/></td>
+        <td><span th:text="${card.name}"/></td>
+        <td><a th:href="@{'/removeCard/' + ${card.id} + '/' + ${user.id}}">remove</a></td>
+    </tr>
+    </tbody>
+</table>
+</br>
+<h2>All cards</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th> id </th>
+        <th> name </th>
+        <th> add </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cardItem : ${allCards}">
+        <td><span th:text="${cardItem.id}"/></td>
+        <td><span th:text="${cardItem.name}"/></td>
+        <td><a th:href="@{'/addCardToUser/' + ${cardItem.id} + '/' + ${user.id}}">add</a></td>
+    </tr>
+    </tbody>
+</table>
+</br>
+<div>
+    <a th:href="@{'/users'}">back</a>
+</div>
+</body>
+</html>
